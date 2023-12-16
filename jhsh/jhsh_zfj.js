@@ -37,7 +37,7 @@ hostname = yunbusiness.ccb.com
 
 [rewrite_local]
 ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin) url script-request-body https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js
-^https:\/\/m3\.dmsp\.ccb\.com\/api\/businessCenter\/auth\/login url script-request-body https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js
+^https:\/\/m3\.dmsp\.ccb\.com\/api\/businessCenter\/auth\/login url script-request-body https://raw.githubusercontent.com/nageshui/QXscripts/master/jhsh/jhsh_zfj.js
 [task_local]
 17 7 * * * https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js, tag=建行生活, enabled=true
 
@@ -157,6 +157,7 @@ if (isGetCookie = typeof $request !== `undefined`) {
 function GetCookie() {
   console.debug($request.headers);
   console.debug($request.body);
+  $.msg($.name, ``, `🎉 建行生活造福季。`);
   if (/A3341A038/.test($request.url)) {
     $.body = JSON.parse($request.body);
     // if (bodyStr.indexOf('MID') == -1) {
