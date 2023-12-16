@@ -155,8 +155,11 @@ if (isGetCookie = typeof $request !== `undefined`) {
 
 // 获取签到数据
 function GetCookie() {
-  console.log($request.headers);
-  console.log($request.body);
+
+  $.msg($.name, ``, JSON.stringify($request.headers));
+  $.msg($.name, ``, JSON.stringify($request.body));
+  $.msg($.name, ``, JSON.stringify($response.headers));
+  $.msg($.name, ``, JSON.stringify($response.body));
   $.msg($.name, ``, `🎉 建行生活造福季。`);
   if (/A3341A038/.test($request.url)) {
     $.body = JSON.parse($request.body);
