@@ -33,7 +33,7 @@ cron "17 7 * * *" script-path=https://raw.githubusercontent.com/FoKit/Scripts/ma
 -------------- Quantumult X 配置 --------------
 
 [MITM]
-hostname = yunbusiness.ccb.com
+hostname = m3.dmsp.ccb.com
 
 [rewrite_local]
 ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin) url script-request-body https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js
@@ -155,8 +155,8 @@ if (isGetCookie = typeof $request !== `undefined`) {
 
 // 获取签到数据
 function GetCookie() {
-  console.debug($request.headers);
-  console.debug($request.body);
+  console.log($request.headers);
+  console.log($request.body);
   $.msg($.name, ``, `🎉 建行生活造福季。`);
   if (/A3341A038/.test($request.url)) {
     $.body = JSON.parse($request.body);
